@@ -6,13 +6,349 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/linear_layout_background"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/edit_text_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            tools:ignore="LabelFor"
+            tools:text="9x9">
+
+            <requestFocus />
+        </EditText>
+
+        <TextView
+            android:id="@+id/text_view_result"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:textAlignment="viewEnd"
+            android:textColor="@color/black"
+            android:textSize="34sp"
+            tools:ignore="RtlCompat"
+            tools:text="=81" />
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_percent"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/baseline_percent_24"
+        app:backgroundTint="@color/button_background"
+        app:elevation="@dimen/cardview_default_radius"
+        app:fabCustomSize="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/button_clear"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout"
+        app:tint="@color/button_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_clear"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_background"
+        android:text="C"
+        android:textColor="@color/button_text"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_backspace"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_percent"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_backspace"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/baseline_backspace_24"
+        app:backgroundTint="@color/button_background"
+        app:elevation="@dimen/cardview_default_radius"
+        app:fabCustomSize="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/button_divide"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_clear"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout"
+        app:tint="@color/button_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_divide"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/button_background"
+        android:text="÷"
+        android:textColor="@color/button_text"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_backspace"
+        app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_seven"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="7"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_eight"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_percent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_eight"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="8"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_nine"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_seven"
+        app:layout_constraintTop_toBottomOf="@+id/button_clear" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_nine"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="9"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_multiply"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_eight"
+        app:layout_constraintTop_toBottomOf="@+id/button_backspace" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_multiply"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/baseline_clear_24"
+        app:backgroundTint="@color/button_background"
+        app:elevation="@dimen/cardview_default_radius"
+        app:fabCustomSize="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_nine"
+        app:layout_constraintTop_toBottomOf="@+id/button_divide"
+        app:tint="@color/button_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_four"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="4"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_five"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_seven" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_five"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="5"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_six"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_four"
+        app:layout_constraintTop_toBottomOf="@+id/button_eight" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_six"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="6"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_substract"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_five"
+        app:layout_constraintTop_toBottomOf="@+id/button_nine" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_substract"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/baseline_remove_24"
+        app:backgroundTint="@color/button_background"
+        app:elevation="@dimen/cardview_default_radius"
+        app:fabCustomSize="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_six"
+        app:layout_constraintTop_toBottomOf="@+id/button_multiply"
+        app:tint="@color/button_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_one"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_two"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_four" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_two"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="2"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_three"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_one"
+        app:layout_constraintTop_toBottomOf="@+id/button_five" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_three"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="3"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_add"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_two"
+        app:layout_constraintTop_toBottomOf="@+id/button_six" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_add"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:src="@drawable/baseline_add_24"
+        app:backgroundTint="@color/button_background"
+        app:elevation="@dimen/cardview_default_radius"
+        app:fabCustomSize="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_three"
+        app:layout_constraintTop_toBottomOf="@+id/button_substract"
+        app:tint="@color/button_text" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_zero"
+        android:layout_width="157dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_background"
+        android:text="0"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_decimal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_one" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_decimal"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/button_background"
+        android:text="."
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_equals"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_zero"
+        app:layout_constraintTop_toBottomOf="@+id/button_three" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/button_equals"
+        style="@style/Widget.MaterialComponents.FloatingActionButton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="40dp"
+        android:src="@drawable/baseline_drag_handle_24"
+        app:backgroundTint="@color/equals_button_background"
+        app:elevation="@dimen/cardview_default_radius"
+        app:fabCustomSize="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/button_decimal"
+        app:layout_constraintTop_toBottomOf="@+id/button_add"
+        app:tint="@color/white" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
